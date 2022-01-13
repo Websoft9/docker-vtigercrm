@@ -1,4 +1,5 @@
 # docs: https://community.vtiger.com/help/vtigercrm/administrators/installation.html
+# image: https://hub.docker.com/r/websoft9dev/vtiger
 
 FROM php:7.2-apache
 
