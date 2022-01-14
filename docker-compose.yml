@@ -23,7 +23,7 @@ services:
       - MYSQL_ROOT_PASSWORD=${DB_MYSQL_PASSWORD}
       - MYSQL_USER=${DB_MYSQL_USER}
       - MYSQL_PASSWORD=${DB_MYSQL_PASSWORD}
-    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_general_ci --sql_mode=ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION --local_infile=ON
+    command: --character-set-server=utf8 --collation-server=utf8_general_ci --sql_mode=NO_ENGINE_SUBSTITUTION --local_infile=ON
     ports:
       - ${DB_MYSQL_PORT}:3306
     volumes:
