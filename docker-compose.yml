@@ -1,4 +1,4 @@
-# image: https://hub.docker.com/r/bitnami/suitecrm
+# image: https://hub.docker.com/r/javanile/vtiger
 # src: https://www.github.com/javanile/vtiger
 
 version: '3.8'
