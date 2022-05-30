@@ -29,16 +29,6 @@ services:
     volumes:
       - mysql:/var/lib/mysql
 
-  phpmyadmin:
-      image: phpmyadmin:latest
-      container_name: ${APP_NAME}-phpmyadmin
-      environment:
-       - UPLOAD_LIMIT=200M
-       - PMA_ARBITRARY=1
-      restart: always
-      ports:
-       - 9090:80
-
 volumes:
   mysql:
   vtiger:
