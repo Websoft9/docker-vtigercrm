@@ -16,7 +16,7 @@ services:
       - MYSQL_DATABASE=${DB_MYSQL_NAME}
       - MYSQL_PASSWORD=${DB_MYSQL_PASSWORD}
       - VT_ADMIN_USER
-      - APP_PASSWORD
+      - VT_ADMIN_PASSWORD
     volumes:
       - vtiger:/var/www/html
     depends_on:
