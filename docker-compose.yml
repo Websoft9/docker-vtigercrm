@@ -10,6 +10,12 @@ services:
     container_name: ${APP_NAME}
     ports:
       - ${APP_PORT}:80
+    environment:
+      - VT_SITE_URL
+      - MYSQL_HOST
+      - MYSQL_USER
+      - MYSQL_DATABASE
+      - MYSQL_PASSWORD
     volumes:
       - vtiger:/var/www/html
     links:
