@@ -1,7 +1,7 @@
 {
   "name": "vtiger",
   "trademark": "Vtiger",
-  "installpath": "/data/wwwroot/vtiger",
+  "installpath": "/data/apps/vtiger",
   "compose_file": "docker-compose.yml",
   "env_file": ".env",
   "requirements":{
