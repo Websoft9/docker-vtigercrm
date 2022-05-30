@@ -53,10 +53,9 @@ If you have not install Docker and Docker-Compose, refer to the following comman
 
 ```
 curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh
-curl -L "https://github.com/docker/compose/releases/download/1.29.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
-ln -sf /usr/local/bin/docker-compose  /usr/bin
+sudo systemctl enable docker
 sudo systemctl start docker
+alias docker-compose='docker compose'
 ```
 
 #### Install {{trademark}}
@@ -87,16 +86,17 @@ Yes, you should modify all database password and application password at docker-
 #### Docker runing failed for the reason that port conflict?
 You should modify ports at [docker-compose file](docker-compose-production.yml) and docker-compose again
 
+{% if faqs is defined -%}
 {% for faq in faqs -%}
 #### {{faq.question_en}}  
 {{faq.answer_en}}  
-
 {% endfor -%}  
+{% endif -%}
 
 
 ### Usage instructions
 
-You can point your browser to: *`http://Instance's Internet IP:{{services[0].port}}`*  
+You can point your browser to: *`http://Instance's Internet IP:port`*  
 
 The following is the information that may be needed during use
 
@@ -111,6 +111,7 @@ By default, the available users are:
 
 {% endif -%}
 
+{% if services is defined -%}
 #### Services and Ports
 
 | Service | Port | Use |  Necessity |
@@ -118,6 +119,7 @@ By default, the available users are:
 {% for service in services -%}
 | {{service.name}} | {{service.port}} | {{service.description_en}} | {{service.required}} |
 {% endfor -%} 
+{% endif -%}
 
 ## Documentation
 

@@ -57,10 +57,9 @@ sudo bash install-{{name}}
 
 ```
 curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh
-curl -L "https://github.com/docker/compose/releases/download/1.29.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
-ln -sf /usr/local/bin/docker-compose  /usr/bin
+sudo systemctl enable docker
 sudo systemctl start docker
+alias docker-compose='docker compose'
 ```
 
 #### 安装 {{trademark}}
@@ -93,17 +92,16 @@ sudo docker-compose up -d
 
 修改 [docker-compose]({{compose_file}}) 文件中冲突的端口，然后再启动容器
 
-
+{% if faqs is defined -%}
 {% for faq in faqs -%}
 #### {{faq.question_cn}}  
 {{faq.answer_cn}}  
-
 {% endfor -%}  
-  
+{% endif -%}
 
 ### 使用说明
 
-启动应用后，本地浏览器访问 URL: *`http://服务器公网IP:{{services[0].port}}`* 进入应用。  
+启动应用后，本地浏览器访问 URL: *`http://服务器公网IP:端口`* 进入应用。  
 
 下面是使用过程中可能需要的信息
 
@@ -118,6 +116,7 @@ sudo docker-compose up -d
 
 {% endif -%}
 
+{% if services is defined -%}
 #### 服务和端口
 
 | 名称 | 端口号 | 用途 |  必要性 |
@@ -125,6 +124,7 @@ sudo docker-compose up -d
 {% for service in services -%}
 | {{service.name}} | {{service.port}} | {{service.description_cn}} | {{service.required}} |
 {% endfor -%}  
+{% endif -%}
   
 
 ## 文档
