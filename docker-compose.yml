@@ -17,7 +17,7 @@ services:
 
   mysql:
     image: mysql:${DB_MYSQL_VERSION}
-    container_name: ${APP_NAME}-mysql
+    container_name: ${APP_NAME}-db
     environment:
       - MYSQL_DATABASE=${DB_MYSQL_NAME}
       - MYSQL_ROOT_PASSWORD=${DB_MYSQL_PASSWORD}
